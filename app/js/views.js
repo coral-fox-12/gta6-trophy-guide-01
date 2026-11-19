@@ -1,6 +1,6 @@
-// Tracker views: the trophy list and the detail pane beside it. Every trophy
-// shows its official name, description and grade, its kind and chapter, and a
-// guide in our own words with its named, linked source.
+// Tracker views: the trophy list and the detail pane beside it. Every
+// trophy shows its official name, description and grade, its kind and
+// chapter, and a guide in our own words with its named, linked source.
 import { KIND_LABELS, isSpoilerMasked } from './filters.js';
 
 const OFFICIAL_LIST = {
@@ -9,10 +9,10 @@ const OFFICIAL_LIST = {
 };
 
 function el(tag, cls, text) {
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (text !== undefined) n.textContent = text;
-  return n;
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined) node.textContent = text;
+  return node;
 }
 
 function gradeDot(grade) {
@@ -83,8 +83,8 @@ export function renderDetail(detailEl, trophy, state, onToggle) {
   if (trophy.hidden) meta.append(document.createTextNode(' · Hidden on PS5'));
   detailEl.append(meta);
 
-  // The citation sits at the top of the pane, so it is visible even when the
-  // guide below it is long.
+  // The citation sits at the top of the pane, so it stays visible even when
+  // the guide below it is long.
   const srcTop = el('p', 'source-line', 'Guide source: ');
   const aTop = document.createElement('a');
   aTop.href = trophy.source.url;
@@ -108,12 +108,12 @@ export function renderDetail(detailEl, trophy, state, onToggle) {
   detailEl.append(el('p', 'detail-guide', masked ? 'Turn spoilers off, or earn this trophy, to read its guide.' : trophy.guide));
 
   const list = el('p', 'source-line', 'Official name, description and grade: ');
-  const b = document.createElement('a');
-  b.href = OFFICIAL_LIST.url;
-  b.textContent = OFFICIAL_LIST.name;
-  b.target = '_blank';
-  b.rel = 'noopener';
-  list.append(b);
+  const link = document.createElement('a');
+  link.href = OFFICIAL_LIST.url;
+  link.textContent = OFFICIAL_LIST.name;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  list.append(link);
   detailEl.append(list);
 
   const toggle = el('button', 'earned-toggle', earned ? '✓ Earned — click to unmark' : 'Mark as earned');

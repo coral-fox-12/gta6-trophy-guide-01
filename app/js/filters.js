@@ -1,5 +1,5 @@
-// Filtering and the spoiler rule: which trophies the list shows, and which of
-// them stay masked until earned.
+// Filtering and the spoiler rule: which trophies the list shows, and which
+// of them stay masked until they are earned.
 export const KIND_LABELS = {
   story: 'Story',
   sidequest: 'Side quests',
@@ -17,7 +17,7 @@ export function isSpoilerMasked(trophy, spoilerHidden, earned) {
 }
 
 export function filterTrophies(trophies, filters, earned) {
-  const q = filters.query.trim().toLowerCase();
+  const query = filters.query.trim().toLowerCase();
   return trophies.filter((t) => {
     if (filters.kind === 'missable') {
       if (!t.missable) return false;
@@ -27,9 +27,9 @@ export function filterTrophies(trophies, filters, earned) {
     if (filters.grade !== 'all' && t.grade !== filters.grade) return false;
     if (filters.status === 'earned' && !earned.has(t.id)) return false;
     if (filters.status === 'unearned' && earned.has(t.id)) return false;
-    if (q) {
+    if (query) {
       const hay = `${t.name} ${t.description} ${t.guide}`.toLowerCase();
-      if (!hay.includes(q)) return false;
+      if (!hay.includes(query)) return false;
     }
     return true;
   });
@@ -42,4 +42,14 @@ export function gradeCounts(trophies, earned) {
     if (earned.has(t.id)) counts[t.grade][0] += 1;
   }
   return counts;
+}
+
+// The next trophy to chase: the earliest unearned one in story order
+// (chapter first, then list order), so a player who is stuck always has a
+// concrete next step instead of a wall of 55.
+export function suggestNext(trophies, earned) {
+  const open = trophies.filter((t) => !earned.has(t.id));
+  if (open.length === 0) return null;
+  open.sort((a, b) => (a.chapter ?? 99) - (b.chapter ?? 99) || a.id - b.id);
+  return open[0];
 }

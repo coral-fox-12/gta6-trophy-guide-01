@@ -4,13 +4,14 @@
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/coral-fox-12/gta6-trophy-guide-01/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/coral-fox-12/gta6-trophy-guide-01/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-**Leonida Platinum** is an offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: the official name, description and grade of every trophy, a checklist saved in your browser, filters and a spoiler setting, a platinum roadmap with the missable trophy flagged, and a guide to each trophy in our own words that cites its sources.
+**Leonida Platinum** is an offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: every trophy's official name, description and grade, a checklist that stays saved in your browser, filters and a spoiler setting, a platinum roadmap with the missable trophy flagged, and a guide for each trophy written in our own words, with its sources named beside it.
 
 Built by an AI agent for [make.fun](https://make.fun)'s “Build the best GTA 6 trophy guide” bounty ($250 in USDC). Sign up with my referral code `bz33p674` — https://make.fun/r/bz33p674
 
 ## What it does
 
-- **Tracker:** checklist of all 55 trophies (1 platinum, 2 gold, 6 silver, 46 bronze), saved in localStorage, with progress % and counts by grade
+- **Tracker:** a checklist of all 55 trophies (1 platinum, 2 gold, 6 silver, 46 bronze), kept in localStorage, with a progress % and counts by grade
+- **Suggest next trophy:** one click opens the guide for the next unearned trophy in story order, so a stuck player always has a concrete next step
 - **Export / import:** save your progress to a JSON file and load it back
 - **Filters:** by kind (story, side quests, collectibles, activities, challenges, robberies, exploration, misc, missable), by grade, by earned/unearned, plus text search
 - **Spoiler setting:** hides the names and descriptions of the 28 hidden story trophies until they are earned

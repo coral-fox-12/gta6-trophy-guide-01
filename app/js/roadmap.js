@@ -1,6 +1,6 @@
-// Roadmap and missables views, built from the official descriptions and the
-// cited guides (PowerPyx for the roadmap numbers, GTABase for the 100%
-// checklist and the story chapters).
+// Platinum roadmap and missables views, rendered from the same data file
+// as the tracker. The numbers come from PowerPyx; the chapter order and the
+// 100% checklist come from GTABase.
 export function renderRoadmap(host, doc) {
   host.replaceChildren();
   const rm = doc.roadmap;

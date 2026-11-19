@@ -79,6 +79,7 @@ input, select, button {
 }
 button { cursor: pointer; }
 button:hover, input:hover, select:hover { border-color: var(--accent); }
+button.suggest { border-color: var(--accent); color: #ffd9cd; font-weight: 700; }
 .spoiler-label, .import-label { display: inline-flex; gap: 6px; align-items: center; }
 .import-label input { font-size: 12px; max-width: 170px; }
 

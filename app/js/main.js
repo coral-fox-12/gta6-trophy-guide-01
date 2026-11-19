@@ -2,7 +2,7 @@
 // and keep the header progress in step. Runs fully offline — the only fetch
 // is the app's own data/trophies.json.
 import { loadEarned, saveEarned, loadSpoilerHidden, saveSpoilerHidden, exportProgress, importProgressFile } from './store.js';
-import { KIND_LABELS, filterTrophies, gradeCounts } from './filters.js';
+import { KIND_LABELS, filterTrophies, gradeCounts, suggestNext } from './filters.js';
 import { renderList, renderDetail } from './views.js';
 import { renderRoadmap, renderMissables } from './roadmap.js';
 
@@ -100,6 +100,20 @@ $('spoiler-toggle').addEventListener('change', (ev) => {
   state.spoilerHidden = ev.target.checked;
   saveSpoilerHidden(state.spoilerHidden);
   renderAll();
+});
+// Suggest next trophy: open the guide for the earliest unearned trophy in
+// story order, so a stuck player always has a concrete next step.
+$('suggest-btn').addEventListener('click', () => {
+  const next = suggestNext(trophies, state.earned);
+  if (!next) {
+    alert('Every trophy is earned — the platinum is yours, Leonida Legend.');
+    return;
+  }
+  state.filters.kind = 'all';
+  state.filters.status = 'all';
+  $('status-filter').value = 'all';
+  for (const c of $('kind-chips').children) c.classList.toggle('active', c.textContent === 'All');
+  selectTrophy(next.id);
 });
 $('export-btn').addEventListener('click', () => exportProgress(state.earned, trophies.length));
 $('import-file').addEventListener('change', async (ev) => {

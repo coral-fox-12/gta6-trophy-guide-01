@@ -1,8 +1,12 @@
-// Progress store: earned trophies + spoiler setting, kept in localStorage, with
-// export to a JSON file and import back. Nothing leaves the browser except
-// through an export the reader asks for.
+// Progress store: which trophies are earned, plus the spoiler setting, kept
+// in localStorage, with export to a JSON file and import back. Nothing
+// leaves the browser except through an export the reader asks for.
 export const EARNED_KEY = 'gta6-trophy-tracker-earned-v1';
 export const SPOILER_KEY = 'gta6-trophy-tracker-spoiler-v1';
+
+function sortedIds(earned) {
+  return [...earned].sort((a, b) => a - b);
+}
 
 export function loadEarned() {
   try {
@@ -16,7 +20,7 @@ export function loadEarned() {
 }
 
 export function saveEarned(earned) {
-  localStorage.setItem(EARNED_KEY, JSON.stringify([...earned].sort((a, b) => a - b)));
+  localStorage.setItem(EARNED_KEY, JSON.stringify(sortedIds(earned)));
 }
 
 export function loadSpoilerHidden() {
@@ -32,7 +36,7 @@ export function exportProgress(earned, total) {
     app: 'Leonida Platinum — GTA 6 Trophy Guide & Tracker',
     exported_at: new Date().toISOString(),
     total,
-    earned: [...earned].sort((a, b) => a - b),
+    earned: sortedIds(earned),
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
