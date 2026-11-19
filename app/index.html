@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA 6 Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="title-block">
+    <h1>Leonida Platinum</h1>
+    <p class="subtitle">GTA 6 trophy guide &amp; tracker — all 55 PlayStation 5 trophies, offline</p>
+    <p class="facts"><span>55 trophies</span> · <span>1 platinum</span> · <span>2 gold</span> · <span>6 silver</span> · <span>46 bronze</span> · <span>~200 hours to platinum</span> · <span>difficulty 4/10</span> · <span>1 playthrough</span> · <span>0 online</span></p>
+  </div>
+  <div class="progress-block" id="progress-block">
+    <div class="big-count"><span id="earned-count">0</span><span class="of">/ 55 earned</span></div>
+    <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
+    <div class="grade-counts" id="grade-counts"></div>
+    <p class="progress-note" id="progress-note">Tick a trophy off and it stays ticked — saved in this browser.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button id="tab-tracker" class="tab active" type="button">Tracker</button>
+  <button id="tab-roadmap" class="tab" type="button">Platinum roadmap</button>
+  <button id="tab-missables" class="tab" type="button">Missables</button>
+</nav>
+
+<main>
+  <section id="view-tracker" class="view">
+    <div class="controls" id="controls">
+      <label class="search-label">Search <input id="search" type="search" placeholder="Trophy name or description…" autocomplete="off"></label>
+      <label>Grade
+        <select id="grade-filter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="status-filter">
+          <option value="all">Earned + unearned</option>
+          <option value="earned">Earned only</option>
+          <option value="unearned">Unearned only</option>
+        </select>
+      </label>
+      <label class="spoiler-label"><input id="spoiler-toggle" type="checkbox" checked> Hide story spoilers</label>
+      <button id="export-btn" type="button">Export progress</button>
+      <label class="import-label">Import progress <input id="import-file" type="file" accept="application/json,.json"></label>
+      <button id="reset-btn" type="button">Reset</button>
+    </div>
+    <div class="chips" id="kind-chips" aria-label="Filter by kind"></div>
+    <p class="list-meta" id="list-meta"></p>
+    <div class="columns">
+      <div class="list-col">
+        <ul class="trophy-list" id="trophy-list"></ul>
+      </div>
+      <aside class="detail-col" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <div id="roadmap"></div>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <div id="missables"></div>
+  </section>
+</main>
+
+<footer>
+  <h2>Sources</h2>
+  <p>Guides are written in our own words for this guide. Trophy names, descriptions and grades are the official PlayStation 5 list, as carried by Exophase. Each trophy's guide names its source beside it; the facts behind the roadmap come from PowerPyx and GTABase.</p>
+  <ul id="source-list"></ul>
+  <p class="fineprint">No Rockstar Games logo, artwork or screenshots are used. This guide works fully offline — it loads nothing from the network. Progress is stored only in your browser (localStorage) and never leaves it except when you export it yourself.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
